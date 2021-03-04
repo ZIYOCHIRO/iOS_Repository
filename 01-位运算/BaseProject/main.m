@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "EmrPerson.h"
 #import "EmrNewPerson.h"
+#import "EmrNewNewPerson.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -26,6 +27,22 @@ int main(int argc, const char * argv[]) {
         [newPerson setHandsome:YES];
         
         NSLog(@"tall is %d, rich is %d, handsome is %d", newPerson.isTall, newPerson.isRich, newPerson.isHandsome);
+        
+        EmrNewNewPerson *newNewPerson = [[EmrNewNewPerson alloc] init];
+        [newNewPerson setTall:YES];
+        [newNewPerson setRich:NO];
+        [newNewPerson setHandsome:YES];
+        
+        NSLog(@"tall is %d, rich is %d, handsome is %d", newNewPerson.isTall, newNewPerson.isRich, newNewPerson.isHandsome);
+        
+        /*
+         位运算实际应用
+         
+         self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
+
+         NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
+         [self addObserver:self forKeyPath:@"tall" options:options context:NULL];
+         */
     }
     return 0;
 }

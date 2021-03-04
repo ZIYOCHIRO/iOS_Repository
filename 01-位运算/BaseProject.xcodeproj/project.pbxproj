@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4090ECB25EF23B900093A3D /* EmrNewNewPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = E4090ECA25EF23B900093A3D /* EmrNewNewPerson.m */; };
+		E422D38425F0FFEF009D4DCF /* SRExample.m in Sources */ = {isa = PBXBuildFile; fileRef = E422D38325F0FFEF009D4DCF /* SRExample.m */; };
 		E459B8FB25ED0E7300EA735F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E459B8FA25ED0E7300EA735F /* main.m */; };
 		E49323D425EE221100F720DC /* EmrPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = E49323D325EE221100F720DC /* EmrPerson.m */; };
 		E49323D825EE24DB00F720DC /* EmrNewPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = E49323D725EE24DB00F720DC /* EmrNewPerson.m */; };
@@ -25,6 +27,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E4090EC925EF23B900093A3D /* EmrNewNewPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmrNewNewPerson.h; sourceTree = "<group>"; };
+		E4090ECA25EF23B900093A3D /* EmrNewNewPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmrNewNewPerson.m; sourceTree = "<group>"; };
+		E422D38225F0FFEF009D4DCF /* SRExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRExample.h; sourceTree = "<group>"; };
+		E422D38325F0FFEF009D4DCF /* SRExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRExample.m; sourceTree = "<group>"; };
 		E459B8F725ED0E7300EA735F /* BaseProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BaseProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		E459B8FA25ED0E7300EA735F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E49323C425EDE43C00F720DC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -70,6 +76,10 @@
 				E49323D325EE221100F720DC /* EmrPerson.m */,
 				E49323D625EE24DB00F720DC /* EmrNewPerson.h */,
 				E49323D725EE24DB00F720DC /* EmrNewPerson.m */,
+				E4090EC925EF23B900093A3D /* EmrNewNewPerson.h */,
+				E4090ECA25EF23B900093A3D /* EmrNewNewPerson.m */,
+				E422D38225F0FFEF009D4DCF /* SRExample.h */,
+				E422D38325F0FFEF009D4DCF /* SRExample.m */,
 			);
 			path = BaseProject;
 			sourceTree = "<group>";
@@ -133,6 +143,8 @@
 				E459B8FB25ED0E7300EA735F /* main.m in Sources */,
 				E49323D425EE221100F720DC /* EmrPerson.m in Sources */,
 				E49323D825EE24DB00F720DC /* EmrNewPerson.m in Sources */,
+				E422D38425F0FFEF009D4DCF /* SRExample.m in Sources */,
+				E4090ECB25EF23B900093A3D /* EmrNewNewPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
