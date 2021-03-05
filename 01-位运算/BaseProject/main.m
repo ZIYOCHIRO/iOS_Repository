@@ -35,14 +35,7 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"tall is %d, rich is %d, handsome is %d", newNewPerson.isTall, newNewPerson.isRich, newNewPerson.isHandsome);
         
-        /*
-         位运算实际应用
-         
-         self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
-
-         NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
-         [self addObserver:self forKeyPath:@"tall" options:options context:NULL];
-         */
+        
     }
     return 0;
 }

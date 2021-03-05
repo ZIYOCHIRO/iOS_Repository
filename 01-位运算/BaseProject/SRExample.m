@@ -16,7 +16,15 @@ typedef enum {
 @implementation SRExample
 
 - (void)setOptions:(SROptions)options {
-    
+    if (options & SROptionOne) {
+        NSLog(@"包含了SROptionOne");
+    } else if (options & SROptionTwo){
+        NSLog(@"包含了SROptionTwo");
+    } else if (options & SROptionThree){
+        NSLog(@"包含了SROptionThree");
+    } else if (options & SROptionFour) {
+        NSLog(@"包含了SROptionFour");
+    }
 }
 
 
@@ -29,6 +37,16 @@ typedef enum {
    | 0b1000
      -------
      0b1011
+     */
+    
+    
+    /*
+     位运算实际应用
+     
+     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
+
+     NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
+     [self addObserver:self forKeyPath:@"tall" options:options context:NULL];
      */
     
 }
