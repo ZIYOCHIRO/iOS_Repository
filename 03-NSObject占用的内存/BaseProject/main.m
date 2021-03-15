@@ -42,6 +42,7 @@ struct Student_IMPL {
 
 // Person
 @interface Person : NSObject {
+    @public
     int _age;
     int _height;
 }
@@ -50,6 +51,7 @@ struct Student_IMPL {
 @end
 // Student
 @interface Student : Person {
+    @public
     int _no;
 }
 @end
@@ -80,11 +82,9 @@ int main(int argc, const char * argv[]) {
         NSLog(@"%zd, %zd",
               class_getInstanceSize([Student class]),  // 24
               malloc_size((__bridge const void *)student)); //32
-        
-        
-        
-        
-        
+        student->_age = 3;
+        student->_no = 8;
+
     }
     return 0;
 }
