@@ -10,6 +10,52 @@
 #import <malloc/malloc.h>
 #import <objc/runtime.h>
 
+struct NSObject_IMPL {
+    Class isa;
+};
+
+struct Person_IMPL {
+    struct NSObject_IMPL NSObject_IVARS; // 8
+    int _age; // 4
+    int _height; // 4
+}; // 需要16个字节的存储空间
+
+struct Student_IMPL {
+    struct Person_IMPL Person_IVARS; //16
+    int _no;//4
+}; //24 下面解释为什么不是20，而是24
+
+
+
+/*
+struct Student_IMPL {
+    Class isa; // 8
+    int _age; // 4
+    int _height; // 4
+    int _no; //4
+}; //20
+ 内存对齐：结构体的大小必须是最大成员大小的倍数，所以是24不是20
+*/
+
+
+
+
+// Person
+@interface Person : NSObject {
+    int _age;
+    int _height;
+}
+@end
+@implementation Person
+@end
+// Student
+@interface Student : Person {
+    int _no;
+}
+@end
+@implementation Student
+@end
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSObject *obj = [[NSObject alloc] init];
@@ -22,6 +68,22 @@ int main(int argc, const char * argv[]) {
         // 获得obj指针所指向内存的大小:16
         //系统分配了16个字节给NSObject对象
         NSLog(@"%zd", malloc_size((__bridge const void *)(obj)));
+        
+        
+        
+        Person *person = [[Person alloc] init];
+        NSLog(@"%zd, %zd",
+              class_getInstanceSize([Person class]),  // 16
+              malloc_size((__bridge const void *)person)); //16
+        
+        Student *student = [[Student alloc] init];
+        NSLog(@"%zd, %zd",
+              class_getInstanceSize([Student class]),  // 24
+              malloc_size((__bridge const void *)student)); //32
+        
+        
+        
+        
         
     }
     return 0;
