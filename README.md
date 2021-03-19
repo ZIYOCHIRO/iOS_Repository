@@ -4,5 +4,6 @@
 * 02-长按 App Icon 图标显示自定义快捷选项(系统默认是编辑/分享App/移除App)
 * 03-分析NSObject对象占用多少内存
 * 04-如何获取instance对象、class对象和meta-class对象以及它们的区别
+* 05-isa指针和superclass指针的指向
 
 

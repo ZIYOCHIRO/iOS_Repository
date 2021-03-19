@@ -1,15 +1,15 @@
 //
-//  EmrMethod.h
+//  SRMethod.h
 //  BaseProject
 //
-//  Created by ruixinyi on 2021/3/2.
+//  Created by ruixinyi on 2021/3/19.
 //
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EmrMethod : NSObject
+@interface SRMethod : NSObject
 
 @end
 

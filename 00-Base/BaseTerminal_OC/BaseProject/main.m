@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EmrMethod.h"
+#import "SRMethod.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
