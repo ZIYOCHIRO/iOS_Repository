@@ -56,12 +56,12 @@ int main(int argc, const char * argv[]) {
         [SRStudent studentClassMethod];
         
         /*  class对象的superclass指针
-         当 SRStudent 的实例对象student要调用Person的对象方法时， 会先通过isa找到studentClass，再通过studentClass的superclass找到Person的class，最后找到对象方法的实现进行调用
+         当 SRStudent 的instance对象student要调用Person的对象方法时， 会先通过isa找到studentClass，再通过studentClass的superclass找到Person的class，最后找到对象方法的实现进行调用
          */
         [student personInstanceMethod];
         
         /* meta-class的superclass指针
-        当SRStudent要调用Person的类方法，会通过
+        当SRStudent要调用Person的类方法，会通过isa找到SRStudent的meta-class，SRStudent的meta-class再通过superclass找到Person的meta-class，最后找到类方法的实现进行调用
          */
         [SRStudent personClassMethod];
         
