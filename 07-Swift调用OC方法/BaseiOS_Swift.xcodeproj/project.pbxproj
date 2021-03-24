@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E482A7C92609CBC100E4B920 /* SRMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = E482A7C82609CBC100E4B920 /* SRMethod.m */; };
 		E4F3CE5C25FC5FFE00032C2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3CE5B25FC5FFE00032C2E /* AppDelegate.swift */; };
 		E4F3CE6025FC5FFE00032C2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3CE5F25FC5FFE00032C2E /* ViewController.swift */; };
 		E4F3CE6325FC5FFE00032C2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F3CE6125FC5FFE00032C2E /* Main.storyboard */; };
@@ -15,7 +16,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E4A473FB260AE7F5006F7240 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E482A7C62609CBC000E4B920 /* BaseiOS_Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseiOS_Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		E482A7C72609CBC100E4B920 /* SRMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRMethod.h; sourceTree = "<group>"; };
+		E482A7C82609CBC100E4B920 /* SRMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRMethod.m; sourceTree = "<group>"; };
+		E4A47401260AEFC0006F7240 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E4F3CE5825FC5FFE00032C2E /* BaseiOS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseiOS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F3CE5B25FC5FFE00032C2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F3CE5F25FC5FFE00032C2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,10 +40,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E482A7C52609CBAB00E4B920 /* OC */ = {
+			isa = PBXGroup;
+			children = (
+				E482A7C72609CBC100E4B920 /* SRMethod.h */,
+				E482A7C82609CBC100E4B920 /* SRMethod.m */,
+				E482A7C62609CBC000E4B920 /* BaseiOS_Swift-Bridging-Header.h */,
+			);
+			path = OC;
+			sourceTree = "<group>";
+		};
 		E4F3CE4F25FC5FFE00032C2E = {
 			isa = PBXGroup;
 			children = (
-				E4A473FB260AE7F5006F7240 /* README.md */,
+				E4A47401260AEFC0006F7240 /* README.md */,
 				E4F3CE5A25FC5FFE00032C2E /* BaseiOS_Swift */,
 				E4F3CE5925FC5FFE00032C2E /* Products */,
 			);
@@ -56,6 +70,7 @@
 		E4F3CE5A25FC5FFE00032C2E /* BaseiOS_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				E482A7C52609CBAB00E4B920 /* OC */,
 				E4F3CE5B25FC5FFE00032C2E /* AppDelegate.swift */,
 				E4F3CE5F25FC5FFE00032C2E /* ViewController.swift */,
 				E4F3CE6125FC5FFE00032C2E /* Main.storyboard */,
@@ -97,6 +112,7 @@
 				TargetAttributes = {
 					E4F3CE5725FC5FFE00032C2E = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
 					};
 				};
 			};
@@ -137,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4F3CE6025FC5FFE00032C2E /* ViewController.swift in Sources */,
+				E482A7C92609CBC100E4B920 /* SRMethod.m in Sources */,
 				E4F3CE5C25FC5FFE00032C2E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +301,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8FBBY2SRU5;
 				INFOPLIST_FILE = BaseiOS_Swift/Info.plist;
@@ -293,6 +311,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-000.BaseiOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BaseiOS_Swift/OC/BaseiOS_Swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -303,6 +323,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8FBBY2SRU5;
 				INFOPLIST_FILE = BaseiOS_Swift/Info.plist;
@@ -312,6 +333,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-000.BaseiOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BaseiOS_Swift/OC/BaseiOS_Swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
