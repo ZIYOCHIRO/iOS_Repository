@@ -5,9 +5,9 @@
 SRParent *parent = [[SRChild alloc] init];
 ```
 
-> **Example**
-SRDog, SRRabit, SRHamster 这些动物都继承 SRAnimal
-SRZooManager作为管理层为每一种动物喂食，只需要与SRAnimal交互即可，而不需要与具体的每种动物交互。
+### Example
+> SRDog, SRRabit, SRHamster 这些动物都继承 SRAnimal。
+> SRZooManager作为管理层为每一种动物喂食，只需要与SRAnimal交互即可，而不需要与具体的每种动物交互。
 
 ```
  // 给每一个动物喂食
