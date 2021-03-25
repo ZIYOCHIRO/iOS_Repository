@@ -15,7 +15,7 @@
 		E4D0A4B724AAEBF3007F5E94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D0A4B624AAEBF3007F5E94 /* Assets.xcassets */; };
 		E4D0A4BA24AAEBF3007F5E94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D0A4B824AAEBF3007F5E94 /* LaunchScreen.storyboard */; };
 		E4D0A4BD24AAEBF3007F5E94 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D0A4BC24AAEBF3007F5E94 /* main.m */; };
-		E4F663C6260CB96700FDF77D /* testImage_13.okoko in Resources */ = {isa = PBXBuildFile; fileRef = E4F663C5260CB96700FDF77D /* testImage_13.okoko */; };
+		E4F663C6260CB96700FDF77D /* testImage_13.png in Resources */ = {isa = PBXBuildFile; fileRef = E4F663C5260CB96700FDF77D /* testImage_13.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 		E4D0A4B924AAEBF3007F5E94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4D0A4BB24AAEBF3007F5E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4D0A4BC24AAEBF3007F5E94 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E4F663C5260CB96700FDF77D /* testImage_13.okoko */ = {isa = PBXFileReference; lastKnownFileType = file; path = testImage_13.okoko; sourceTree = "<group>"; };
+		E4F663C5260CB96700FDF77D /* testImage_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testImage_13.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,7 @@
 		E4D0A4A924AAEBF2007F5E94 /* XcodeBefore13 */ = {
 			isa = PBXGroup;
 			children = (
-				E4F663C5260CB96700FDF77D /* testImage_13.okoko */,
+				E4F663C5260CB96700FDF77D /* testImage_13.png */,
 				E4D0A4AA24AAEBF2007F5E94 /* AppDelegate.h */,
 				E4D0A4AB24AAEBF2007F5E94 /* AppDelegate.m */,
 				E4D0A4B024AAEBF2007F5E94 /* ViewController.h */,
@@ -150,7 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4D0A4BA24AAEBF3007F5E94 /* LaunchScreen.storyboard in Resources */,
-				E4F663C6260CB96700FDF77D /* testImage_13.okoko in Resources */,
+				E4F663C6260CB96700FDF77D /* testImage_13.png in Resources */,
 				E4D0A4B724AAEBF3007F5E94 /* Assets.xcassets in Resources */,
 				E4D0A4B524AAEBF2007F5E94 /* Main.storyboard in Resources */,
 			);

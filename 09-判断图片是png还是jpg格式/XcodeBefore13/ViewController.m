@@ -77,7 +77,7 @@ NSString *GetContentTypeForImageData(NSData *data) {
 - (void)action_1 {
 //    UIImage *testImage = [UIImage imageNamed:@"testImage_13"];
 //    NSData *imageData = UIImagePNGRepresentation(testImage);
-    NSData *imageData_1 = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testImage_13" ofType:@"okoko"]];
+    NSData *imageData_1 = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testImage_13" ofType:@"png"]];
     NSString *aa = GetContentTypeForImageData(imageData_1);
     NSLog(@"宇宙无敌检测格式：%@",aa);
     
