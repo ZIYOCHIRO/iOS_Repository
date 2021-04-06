@@ -33,28 +33,22 @@
 + (NSString *)GetAppBundleName;
 // App名称
 + (NSString *)GetAppName;
-// 运营商
-+ (NSString *)GetCarrierName;
-//==========================================
-
-
-
-
-
-// 是否越狱
-+ (BOOL)ISJailBroken;
-
 // 设备最近开机时间
 + (NSString *)GetLastDeviceBootTime;
 // 系统最近更新时间
 + (NSString *)GetLastSystemUpdateTime;
-// 手机总容量大小 128GB
+// 物理内存容量(可用容量)
 + (NSString *)GetDeivceMemorySize;
-// 手机可用容量大小 13.3GB
-+ (NSString *)GetDeviceAvailableMemorySize;
+// 硬盘容量（总容量）
++ (NSString *)GetDeviceDiskSize;
+// 运营商
++ (NSString *)GetCarrierName;
 // 电池充电状态 -1:未知 0:未充电 1:充电
-+ (int)GetBattaryChargeStatus;
++ (NSString *)GetBattaryChargeStatus;
 // 电池电量百分比 0.93(93%)
-+ (double)GetBatteryPercentage;
++ (NSString *)GetBatteryPercentage;
+// 是否越狱
++ (NSString *)ISJailBroken;
+
 @end
 

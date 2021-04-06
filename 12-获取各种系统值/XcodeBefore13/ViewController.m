@@ -71,7 +71,22 @@
     NSLog(@"App包名：%@", j);
     NSString *k = [SRTool GetAppName];
     NSLog(@"App名称：%@", k);
-
+    NSString *l = [SRTool GetLastDeviceBootTime];
+    NSLog(@"设备开机时间：%@", l);
+    NSString *m = [SRTool GetLastSystemUpdateTime];
+    NSLog(@"系统更新时间：%@", m);
+    NSString *n = [SRTool GetDeivceMemorySize];
+    NSLog(@"物理内存(可用容量)：%@", n);
+    NSString *o = [SRTool GetDeviceDiskSize];
+    NSLog(@"硬盘容量(总容量)：%@", o);
+    NSString *p = [SRTool GetCarrierName];
+    NSLog(@"运营商名称：%@", p);
+    NSString *q = [SRTool GetBattaryChargeStatus];
+    NSLog(@"电池状态：%@", q);
+    NSString *r = [SRTool GetBatteryPercentage];
+    NSLog(@"电量百分比：%@", r);
+    NSString *s = [SRTool ISJailBroken];
+    NSLog(@"是否越狱：%@", s);
 
 
     

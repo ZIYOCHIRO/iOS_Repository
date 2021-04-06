@@ -9,6 +9,7 @@
 #import "SRTool.h"
 #import <UIKit/UIKit.h>
 #import "sys/utsname.h"
+#import <sys/sysctl.h>
 #import <CoreTelephony/CTCarrier.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 
@@ -187,10 +188,173 @@
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
 }
 
++ (NSString *)GetLastDeviceBootTime {
+    struct timeval boottime;
+    size_t len = sizeof(boottime);
+    int mib[2] = {CTL_KERN, KERN_BOOTTIME};
+    if (sysctl(mib, 2, &boottime, &len, NULL, 0) < 0) {
+        return @"0";
+    }
+    return [NSString stringWithFormat:@"%ld",boottime.tv_sec ];
+    
+    
+}
+
++(NSString *)GetLastSystemUpdateTime {
+    NSString *result = nil;
+    NSString *information = @"L3Zhci9tb2JpbGUvTGlicmFyeS9Vc2VyQ29uZmlndXJhdGlvblByb2ZpbGVzL1B1YmxpY0luZm8vTUNNZXRhLnBsaXN0";
+    NSData *data=[[NSData alloc]initWithBase64EncodedString:information options:0];
+    NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:dataString error:&error];
+    if (fileAttributes) {
+        id singleAttibute = [fileAttributes objectForKey:NSFileCreationDate];
+        if ([singleAttibute isKindOfClass:[NSDate class]]) {
+            NSDate *dataDate = singleAttibute;
+            result = [NSString stringWithFormat:@"%f",[dataDate timeIntervalSince1970]];
+        }
+    }
+    return result;
+}
+
+
++ (NSString *)GetDeivceMemorySize {
+    return [NSString stringWithFormat:@"%lld", [NSProcessInfo processInfo].physicalMemory];
+}
+
++ (NSString *)GetDeviceDiskSize {
+    int64_t space = -1;
+    NSError *error = nil;
+    NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&error];
+    if (!error) {
+        space = [[attrs objectForKey:NSFileSystemSize] longLongValue];
+    }
+    if (space < 0) {
+        space = -1;
+    }
+    return [NSString stringWithFormat:@"%lld", space];
+    
+}
+
 
 + (NSString *)GetCarrierName {
-    CTTelephonyNetworkInfo *info = [[CTTelephonyNetworkInfo alloc] init];
-    CTCarrier *carrier = info.subscriberCellularProvider;
-    return carrier.carrierName;
+#if TARGET_IPHONE_SIMULATOR
+    return @"SIMULATOR";
+#else
+    static dispatch_queue_t _queue;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        _queue = dispatch_queue_create([[NSString stringWithFormat:@"com.carr.%@", self] UTF8String], NULL);
+    });
+    __block NSString *  carr = nil;
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    dispatch_async(_queue, ^(){
+        CTTelephonyNetworkInfo *info = [[CTTelephonyNetworkInfo alloc] init]; CTCarrier *carrier = nil;
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 12.1) {
+            if ([info respondsToSelector:@selector(serviceSubscriberCellularProviders)]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunguarded-availability-new"
+                NSArray *carrierKeysArray = [info.serviceSubscriberCellularProviders.allKeys
+                                             sortedArrayUsingSelector:@selector(compare:)];
+                carrier = info.serviceSubscriberCellularProviders[carrierKeysArray.firstObject];
+                if (!carrier.mobileNetworkCode) {
+                    carrier = info.serviceSubscriberCellularProviders[carrierKeysArray.lastObject];
+                }
+#pragma clang diagnostic pop
+            }
+        }
+        if(!carrier) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            carrier = info.subscriberCellularProvider;
+#pragma clang diagnostic pop
+        }
+        if (carrier != nil) {
+            NSString *networkCode = [carrier mobileNetworkCode];
+            NSString *countryCode = [carrier mobileCountryCode];
+            if (countryCode && [countryCode isEqualToString:@"460"] &&networkCode) {
+                if ([networkCode isEqualToString:@"00"] || [networkCode isEqualToString:@"02"] || [networkCode isEqualToString:@"07"] || [networkCode isEqualToString:@"08"]) {
+                    carr= @"中国移动";
+                }
+                if ([networkCode isEqualToString:@"01"] || [networkCode isEqualToString:@"06"] || [networkCode isEqualToString:@"09"]) {
+                    carr= @"中国联通";
+                }
+                if ([networkCode isEqualToString:@"03"] || [networkCode isEqualToString:@"05"] || [networkCode isEqualToString:@"11"]) {
+                    carr= @"中国电信";
+                }
+                if ([networkCode isEqualToString:@"04"]) {
+                    carr= @"中国卫通";
+                }
+                if ([networkCode isEqualToString:@"20"]) {
+                    carr= @"中国铁通";
+                }
+            }else {
+                carr = [carrier.carrierName copy];
+            }
+        }
+        if (carr.length <= 0) {
+            carr = @"unknown";
+        }
+        dispatch_semaphore_signal(semaphore);
+    });
+    dispatch_time_t t = dispatch_time(DISPATCH_TIME_NOW, 0.5* NSEC_PER_SEC);
+    dispatch_semaphore_wait(semaphore, t);
+    return [carr copy];
+#endif
+}
+
+
++ (NSString *)GetBattaryChargeStatus {
+    UIDevice *device = [UIDevice currentDevice];
+    device.batteryMonitoringEnabled = YES;
+    if (device.batteryState == UIDeviceBatteryStateUnplugged) {
+        return @"未充电";
+    } else if  (device.batteryState == UIDeviceBatteryStateCharging) {
+        return @"充电";
+    } else if  (device.batteryState == UIDeviceBatteryStateFull) {
+        return @"电量已满";
+    } else {
+        return @"未知";
+    }
+}
+
++ (NSString *)GetBatteryPercentage {
+    UIDevice *device = [UIDevice currentDevice];
+    device.batteryMonitoringEnabled = YES;
+    float level = device.batteryLevel;
+    return [NSString stringWithFormat:@"%.0f", level * 100];
+}
+
++ (NSString *)ISJailBroken {
+    BOOL isJail = NO;
+    /// 根据是否能打开cydia判断
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"cydia://"]]) {
+        isJail = YES;
+    }
+    /// 根据是否能获取所有应用的名称判断 没有越狱的设备是没有读取所有应用名称的权限的。
+    if ([[NSFileManager defaultManager] fileExistsAtPath:@"User/Applications/"]) {
+        isJail = YES;
+    }
+    
+    NSArray *jailbreak_tool_paths = @[
+        @"/Applications/Cydia.app",
+        @"/Library/MobileSubstrate/MobileSubstrate.dylib",
+        @"/bin/bash",
+        @"/usr/sbin/sshd",
+        @"/etc/apt"
+    ];
+    
+    /// 判断这些文件是否存在，只要有存在的，就可以认为手机已经越狱了。
+    for (int i=0; i<jailbreak_tool_paths.count; i++) {
+        if ([[NSFileManager defaultManager] fileExistsAtPath:jailbreak_tool_paths[i]]) {
+            isJail = YES;
+        }
+    }
+    
+    if (isJail) {
+        return @"YES";
+    } else {
+        return @"NO";
+    }
 }
 @end

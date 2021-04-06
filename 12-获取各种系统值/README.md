@@ -1,5 +1,40 @@
-## 一些模板工程
-* 00-Base - 基础空白工程
-* 01-位域运算 - `&`、`|`、`~`操作
-    * 用于Mask
-
+```
+NSString *a = [SRTool GetDeviceModel];
+NSLog(@"设备型号：%@", a);
+NSString *b = [SRTool GetPhoneName];
+NSLog(@"设备名称：%@", b);
+NSString *c = [SRTool GetSystemVersion];
+NSLog(@"系统版本：%@", c);
+NSString *d = [SRTool GetDevicePhysicalSize];
+NSLog(@"物理尺寸：%@", d);
+NSString *e = [SRTool GetDeviceResolution];
+NSLog(@"分辨率：%@", e);
+NSString *f = [SRTool GetSystemLanguage];
+NSLog(@"系统语言：%@", f);
+NSString *g = [SRTool GetSystemRegion];
+NSLog(@"系统地区：%@", g);
+NSString *h = [SRTool GetSystemCountryCode];
+NSLog(@"国家代码：%@", h);
+NSString *i = [SRTool GetAppVersion];
+NSLog(@"App版本号：%@", i);
+NSString *j = [SRTool GetAppBundleName];
+NSLog(@"App包名：%@", j);
+NSString *k = [SRTool GetAppName];
+NSLog(@"App名称：%@", k);
+NSString *l = [SRTool GetLastDeviceBootTime];
+NSLog(@"设备开机时间：%@", l);
+NSString *m = [SRTool GetLastSystemUpdateTime];
+NSLog(@"系统更新时间：%@", m);
+NSString *n = [SRTool GetDeivceMemorySize];
+NSLog(@"物理内存(可用容量)：%@", n);
+NSString *o = [SRTool GetDeviceDiskSize];
+NSLog(@"硬盘容量(总容量)：%@", o);
+NSString *p = [SRTool GetCarrierName];
+NSLog(@"运营商名称：%@", p);
+NSString *q = [SRTool GetBattaryChargeStatus];
+NSLog(@"电池状态：%@", q);
+NSString *r = [SRTool GetBatteryPercentage];
+NSLog(@"电量百分比：%@", r);
+NSString *s = [SRTool ISJailBroken];
+ NSLog(@"是否越狱：%@", s);
+```
