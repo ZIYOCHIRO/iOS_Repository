@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E40E42EC25E7987200757DAA /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40E42EA25E7987200757DAA /* CoreServices.framework */; };
-		E40E42ED25E7987200757DAA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40E42EB25E7987200757DAA /* MobileCoreServices.framework */; };
+		E431C374262193A800B6F36F /* SRNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E431C373262193A800B6F36F /* SRNetworkTool.m */; };
 		E4D0A4AC24AAEBF2007F5E94 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D0A4AB24AAEBF2007F5E94 /* AppDelegate.m */; };
 		E4D0A4B224AAEBF2007F5E94 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D0A4B124AAEBF2007F5E94 /* ViewController.m */; };
 		E4D0A4B524AAEBF2007F5E94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D0A4B324AAEBF2007F5E94 /* Main.storyboard */; };
@@ -20,6 +19,8 @@
 /* Begin PBXFileReference section */
 		E40E42EA25E7987200757DAA /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		E40E42EB25E7987200757DAA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E431C372262193A800B6F36F /* SRNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRNetworkTool.h; sourceTree = "<group>"; };
+		E431C373262193A800B6F36F /* SRNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRNetworkTool.m; sourceTree = "<group>"; };
 		E49323C625EDE45400F720DC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E4D0A4A724AAEBF2007F5E94 /* XcodeBefore13.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeBefore13.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D0A4AA24AAEBF2007F5E94 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -38,8 +39,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E40E42EC25E7987200757DAA /* CoreServices.framework in Frameworks */,
-				E40E42ED25E7987200757DAA /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +52,15 @@
 				E40E42EB25E7987200757DAA /* MobileCoreServices.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E431C3712621939200B6F36F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E431C372262193A800B6F36F /* SRNetworkTool.h */,
+				E431C373262193A800B6F36F /* SRNetworkTool.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		E4D0A49E24AAEBF2007F5E94 = {
@@ -76,6 +84,7 @@
 		E4D0A4A924AAEBF2007F5E94 /* XcodeBefore13 */ = {
 			isa = PBXGroup;
 			children = (
+				E431C3712621939200B6F36F /* Network */,
 				E4D0A4AA24AAEBF2007F5E94 /* AppDelegate.h */,
 				E4D0A4AB24AAEBF2007F5E94 /* AppDelegate.m */,
 				E4D0A4B024AAEBF2007F5E94 /* ViewController.h */,
@@ -115,7 +124,7 @@
 		E4D0A49F24AAEBF2007F5E94 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = ruixinyi;
 				TargetAttributes = {
 					E4D0A4A624AAEBF2007F5E94 = {
@@ -162,6 +171,7 @@
 				E4D0A4B224AAEBF2007F5E94 /* ViewController.m in Sources */,
 				E4D0A4AC24AAEBF2007F5E94 /* AppDelegate.m in Sources */,
 				E4D0A4BD24AAEBF3007F5E94 /* main.m in Sources */,
+				E431C374262193A800B6F36F /* SRNetworkTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +223,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -238,7 +249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -272,6 +283,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -291,7 +303,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -305,13 +317,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8FBBY2SRU5;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/BiddingSDKs/ChartboostSDK",
-					"$(PROJECT_DIR)/BiddingSDKs/FacebookSDK",
-					"$(PROJECT_DIR)/BiddingSDKs/AppLovinSDK/applovin-ios-sdk-6.14.10",
-					"$(PROJECT_DIR)/BiddingSDKs/TapjoySDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = XcodeBefore13/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -330,13 +336,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8FBBY2SRU5;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/BiddingSDKs/ChartboostSDK",
-					"$(PROJECT_DIR)/BiddingSDKs/FacebookSDK",
-					"$(PROJECT_DIR)/BiddingSDKs/AppLovinSDK/applovin-ios-sdk-6.14.10",
-					"$(PROJECT_DIR)/BiddingSDKs/TapjoySDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = XcodeBefore13/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -7,11 +7,7 @@
 //
 
 #import "ViewController.h"
-#include <sys/sysctl.h>
-#include "TargetConditionals.h"
-#import <sys/utsname.h>
-#import <objc/runtime.h>
-#import <malloc/malloc.h>
+#import "SRNetworkTool.h"
 
 
 @interface ViewController () {
@@ -30,13 +26,13 @@
     
     UIButton *button_1 = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 100, 40)];
     button_1.backgroundColor = [UIColor purpleColor];
-    [button_1 setTitle:@"Action_1" forState:UIControlStateNormal];
+    [button_1 setTitle:@"POST" forState:UIControlStateNormal];
     [button_1 addTarget:self action:@selector(action_1) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button_1];
     
     UIButton *button_2 = [[UIButton alloc] initWithFrame:CGRectMake(50, 100, 100, 40)];
     button_2.backgroundColor = [UIColor purpleColor];
-    [button_2 setTitle:@"Action_2" forState:UIControlStateNormal];
+    [button_2 setTitle:@"GET" forState:UIControlStateNormal];
     [button_2 addTarget:self action:@selector(action_2) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button_2];
     
@@ -55,31 +51,26 @@
 }
 
 - (void)action_1 {
- 
-    
+    [SRNetworkTool PostRequestWithURL:@"" InfoDic:@{} successBlock:^(id  _Nonnull obj) {
+        //
+    } failBlock:^{
+        //
+    }];
     
 }
 
 - (void)action_2 {
-    
-    [self performSelector:@selector(testAction) withObject:nil afterDelay:3.0];
-
+    [SRNetworkTool GetRequestWithURL:@"" InfoDic:@{} successBlock:^(id  _Nonnull obj) {
+        //
+    } failBlock:^{
+        //
+    }];
 }
 
-- (void)testAction {
-    NSLog(@"====== test Action");
-}
-
-+ (void)newTestAction {
-    NSLog(@"====== newTestAction");
-}
 
 - (void)action_3 {
-
-    
+   
 }
-
- 
 
 - (void)action_4 {
 

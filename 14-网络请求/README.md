@@ -1,5 +1,22 @@
-## 一些模板工程
-* 00-Base - 基础空白工程
-* 01-位域运算 - `&`、`|`、`~`操作
-    * 用于Mask
+使用：
+1.import 头文件
+```
+#import "SRNetworkTool.h"
+```
+2.调用POST方法
+```
+[SRNetworkTool PostRequestWithURL:@"" InfoDic:@{} successBlock:^(id  _Nonnull obj) {
+    //
+} failBlock:^{
+    //
+}];
+```
 
+3.调用GET方法
+```
+[SRNetworkTool GetRequestWithURL:@"" InfoDic:@{} successBlock:^(id  _Nonnull obj) {
+    //
+} failBlock:^{
+    //
+}];
+```

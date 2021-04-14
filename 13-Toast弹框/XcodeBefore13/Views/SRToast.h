@@ -10,6 +10,6 @@
 
 @interface SRToast : NSObject
 
-// 适应高度 适应宽度
+// 展示Toast弹框：宽度/高度自适应
 + (void)ShowToastWithMessage:(NSString *)message;
 @end
