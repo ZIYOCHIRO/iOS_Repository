@@ -11,7 +11,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRInAppPurchase : NSObject
-+ (void)PurchaseWithProductId:(NSString *)productId;
+/*
+ PID = product id
+ */
+// 请求商品信息
++ (void)RequestProductInfosWithPIDs:(NSArray *)pidArray;
+// 获取商品信息
++ (NSDictionary*)GetProductInfosWithPID:(NSString *)pid;
+// 购买
++ (void)BuyActionWithPID:(NSString *)pid;
+// 恢复购买Restore
++ (void)RestoreAction;
 
 @end
 
