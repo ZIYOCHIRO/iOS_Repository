@@ -31,6 +31,14 @@
 + (void)studentClassMethod;
 @end
 @implementation SRStudent
+- (id)init {
+    self = [super init];
+    if (self) {
+        NSLog(@"%@", NSStringFromClass([self class]));
+        NSLog(@"%@", NSStringFromClass([super class]));
+    }
+    return self;
+}
 - (void)studentInstanceMethod {}
 + (void)studentClassMethod {}
 @end

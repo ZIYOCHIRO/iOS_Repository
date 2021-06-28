@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E482A7C62609CBC000E4B920 /* BaseiOS_Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseiOS_Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		E4201F6F266A0687009DC96E /* SR-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SR-Bridge-Header.h"; sourceTree = "<group>"; };
 		E482A7C72609CBC100E4B920 /* SRMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRMethod.h; sourceTree = "<group>"; };
 		E482A7C82609CBC100E4B920 /* SRMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRMethod.m; sourceTree = "<group>"; };
 		E4A47401260AEFC0006F7240 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 			children = (
 				E482A7C72609CBC100E4B920 /* SRMethod.h */,
 				E482A7C82609CBC100E4B920 /* SRMethod.m */,
-				E482A7C62609CBC000E4B920 /* BaseiOS_Swift-Bridging-Header.h */,
+				E4201F6F266A0687009DC96E /* SR-Bridge-Header.h */,
 			);
 			path = OC;
 			sourceTree = "<group>";
@@ -311,7 +311,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-000.BaseiOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BaseiOS_Swift/OC/BaseiOS_Swift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ruixinyi/Desktop/iOS_Repository/07-Swift调用OC方法/BaseiOS_Swift/OC/SR-Bridge-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -333,7 +333,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-000.BaseiOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BaseiOS_Swift/OC/BaseiOS_Swift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ruixinyi/Desktop/iOS_Repository/07-Swift调用OC方法/BaseiOS_Swift/OC/SR-Bridge-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
