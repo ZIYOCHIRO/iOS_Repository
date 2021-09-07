@@ -7,6 +7,14 @@
 //
 
 #import "SRNetworkTool.h"
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <netinet/in.h>
+#include <arpa/inet.h>
+#import "GCDAsyncSocket.h"
+
+@interface SRNetworkTool ()<GCDAsyncSocketDelegate>
+
+@end
 
 @implementation SRNetworkTool
 
@@ -86,4 +94,35 @@
     [GET_Task resume];
 }
 
+
+static void(^NetWorkCheckBlock)(int code, NSString *hostPortInfo);
+static GCDAsyncSocket *clientSocket;
++ (void)NetworkConnected:(NSString *)ipAdress port:(int)port result:(void(^)(int code, NSString *hostPortInfo))resultBlock{
+    NetWorkCheckBlock = resultBlock;
+    dispatch_queue_t dispatchQueue = dispatch_queue_create("tcpClientQueue", NULL);
+    clientSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatchQueue];
+    [clientSocket connectToHost:ipAdress onPort:port withTimeout:3  error:nil];
+    
+}
+
+
+
+#pragma mark- GCDAsyncSocketDelegate
++(void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
+    NSLog(@"====success回调【%@:%i】", host, port);
+    clientSocket.delegate = nil;
+    clientSocket = nil;
+    if (NetWorkCheckBlock) {
+        NetWorkCheckBlock(1, [NSString stringWithFormat:@"%@:%i", host, port]);
+    }
+}
+
++(void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
+    NSLog(@"====fail回调【%@:%i】", sock.connectedHost, sock.connectedPort);
+    clientSocket.delegate = nil;
+    clientSocket = nil;
+    if (NetWorkCheckBlock) {
+        NetWorkCheckBlock(0, @"");
+    }
+}
 @end

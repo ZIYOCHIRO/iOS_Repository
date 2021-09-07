@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
              successBlock:(void(^)(id obj))successBlock
                 failBlock:(void(^)(void))failBlock;
 
++ (void)NetworkConnected:(NSString *)ipAdress port:(int)port result:(void(^)(int code, NSString *hostPortInfo))resultBlock;
 @end
 
 NS_ASSUME_NONNULL_END

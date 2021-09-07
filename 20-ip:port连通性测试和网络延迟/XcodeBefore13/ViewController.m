@@ -20,25 +20,31 @@
 #import "SRNetworkTool.h"
 
 
+#import "TcpServer.h"
+#import "TcpClient.h"
+#import "ConnectionDef.h"
+
 @interface ViewController ()<SimplePingDelegate> {
     NSString *personName;
     STDPingServices *pingServices; // Custom
     SimplePing *pingSimple; // Apple
 }
 
+@property (nonatomic, retain) TcpServer *tcpServer;
+@property (nonatomic, retain) TcpClient *tcpClient;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
-
+    
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-
     
     UIButton *button_1 = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 100, 40)];
     button_1.backgroundColor = [UIColor purpleColor];
-    [button_1 setTitle:@"Action_1" forState:UIControlStateNormal];
+    [button_1 setTitle:@"Ping" forState:UIControlStateNormal];
     [button_1 addTarget:self action:@selector(action_1) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button_1];
     
@@ -50,55 +56,57 @@
     
     UIButton *button_3 = [[UIButton alloc] initWithFrame:CGRectMake(50, 150, 100, 40)];
     button_3.backgroundColor = [UIColor purpleColor];
-    [button_3 setTitle:@"Action_3" forState:UIControlStateNormal];
+    [button_3 setTitle:@"网络延迟" forState:UIControlStateNormal];
     [button_3 addTarget:self action:@selector(action_3) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button_3];
     
     UIButton *button_4 = [[UIButton alloc] initWithFrame:CGRectMake(50, 200, 100, 40)];
     button_4.backgroundColor = [UIColor purpleColor];
-    [button_4 setTitle:@"Action_4" forState:UIControlStateNormal];
+    [button_4 setTitle:@"ip+端口是否可连" forState:UIControlStateNormal];
     [button_4 addTarget:self action:@selector(action_4) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button_4];
     
 }
 
 - (void)action_1 {
-    personName = @"testname";
-    NSLog(@"dddd");
+    pingSimple = [[SimplePing alloc] initWithHostName:@"www.apple.com"];
+    pingSimple.addressStyle = SimplePingAddressStyleICMPv4;
+    pingSimple.delegate = self;
+    [pingSimple start];
+    
+}
+
+- (void)action_2 {
+    //[pingServices cancel];
+    
+}
+
+
+
+- (void)action_3 {
     pingServices = [STDPingServices startPingAddress:@"147.139.36.57" callbackHandler:^(STDPingItem *pingItem, NSArray *pingItems) {
         if (pingItem.status != STDPingStatusFinished) {
             NSLog(@"网络延迟  %.0fms", pingItem.timeMilliseconds);
         }else {
             //NSLog(@"%@", [STDPingItem statisticsWithPingItems:pingItems]);
-            NSLog(@"Finished");
+            NSLog(@"网络延迟 Finished");
         }
     }];
-    
-}
-
-- (void)action_2 {
-    [pingServices cancel];
 }
 
 
-- (void)action_3 {
-
-    pingSimple = [[SimplePing alloc] initWithHostName:@"gzyd.dasaric.pw"];
-    pingSimple.addressStyle = SimplePingAddressStyleICMPv4;
-    pingSimple.delegate = self;
-    [pingSimple start];
-}
-
- 
 
 - (void)action_4 {
-    [SRNetworkTool GetRequestWithURL:@"https://ssrtool.us/tool/api/check_cn1" InfoDic:@{@"ip":@"49.51.169.23", @"port":@"2666"} successBlock:^(id  _Nonnull obj) {
-            NSLog(@"success");
-        } failBlock:^{
-            //
-        }];
+    [SRNetworkTool NetworkConnected:@"49.51.169.23" port:2666 result:^(int code, NSString * _Nonnull hostPortInfo) {
+        if (code == 1) {
+            NSLog(@"####  可以连接: %@", hostPortInfo);
+        } else {
+            NSLog(@"### 不可以连接");
+        }
+    }];
+   
+    
 }
-
 // [pingSimple start] 成功之后，解析 HostName 拿到 ip 地址之后，发送封包
 - (void)simplePing:(SimplePing *)pinger didStartWithAddress:(NSData *)address
 {
