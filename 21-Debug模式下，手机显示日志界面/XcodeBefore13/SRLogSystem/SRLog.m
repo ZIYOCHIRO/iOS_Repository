@@ -43,14 +43,6 @@ static SRLogView *LogView;
 + (void)FiveFingerEventTriggered {
     NSLog(@"This is dddddd");
     //DEBUG_LEVEL = INTRANET_REACHABLE + 1;
-    
-#ifdef UNITY_GAME
-    
-#elif defined  UNITY_COCOS_GAME
-
-#else
-    
-#endif
 }
 
 
