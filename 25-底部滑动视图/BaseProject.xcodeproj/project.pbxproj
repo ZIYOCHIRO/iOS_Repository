@@ -14,6 +14,7 @@
 		E4FAB08D26AE8AD7006D6A76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4FAB08426AE8AD7006D6A76 /* Main.storyboard */; };
 		E4FAB08E26AE8AD7006D6A76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FAB08626AE8AD7006D6A76 /* main.m */; };
 		E4FAB08F26AE8AD7006D6A76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FAB08726AE8AD7006D6A76 /* AppDelegate.m */; };
+		E4FC5FE827041E0B00C0D476 /* SRBottomView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E4FC5FE727041E0B00C0D476 /* SRBottomView.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E4FAB08726AE8AD7006D6A76 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E4FAB08826AE8AD7006D6A76 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4FAB08926AE8AD7006D6A76 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E4FC5FE727041E0B00C0D476 /* SRBottomView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SRBottomView.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				E48E1B2927019B84004AF8BE /* SRBottomView.h */,
 				E48E1B2A27019B84004AF8BE /* SRBottomView.m */,
+				E4FC5FE727041E0B00C0D476 /* SRBottomView.bundle */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4FC5FE827041E0B00C0D476 /* SRBottomView.bundle in Resources */,
 				E4FAB08D26AE8AD7006D6A76 /* Main.storyboard in Resources */,
 				E4FAB08A26AE8AD7006D6A76 /* Assets.xcassets in Resources */,
 				E4FAB08C26AE8AD7006D6A76 /* LaunchScreen.storyboard in Resources */,
