@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "SRCalendarView.h"
 
 @interface ViewController () {
     
@@ -50,7 +50,10 @@
 }
 
 - (void)action_1 {
-
+    CGFloat width = [UIScreen mainScreen].bounds.size.width - 30;
+    CGFloat heigth = width *1.12;
+    SRCalendarView *calendarView = [[SRCalendarView alloc] initWithFrame:CGRectMake(15, 100, width, heigth)];
+    [self.view addSubview:calendarView];
 }
 
 - (void)action_2 {

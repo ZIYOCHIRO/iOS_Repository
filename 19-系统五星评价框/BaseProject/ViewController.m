@@ -86,7 +86,8 @@
 }
 
 - (void)action_2 {
-
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
+    [SKStoreReviewController requestReview];
 }
 
 
