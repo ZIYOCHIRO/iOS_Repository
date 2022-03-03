@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E49FE49327C6190C00AE7C33 /* DBTTimerMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = E49FE49227C6190C00AE7C33 /* DBTTimerMethod.m */; };
 		E4FAB08A26AE8AD7006D6A76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FAB08026AE8AD7006D6A76 /* Assets.xcassets */; };
 		E4FAB08B26AE8AD7006D6A76 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FAB08126AE8AD7006D6A76 /* ViewController.m */; };
 		E4FAB08C26AE8AD7006D6A76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4FAB08226AE8AD7006D6A76 /* LaunchScreen.storyboard */; };
@@ -20,6 +21,8 @@
 		E40E42EB25E7987200757DAA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E49323C625EDE45400F720DC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E4934D2326AE88B20009C31B /* BaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E49FE49127C6190C00AE7C33 /* DBTTimerMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTTimerMethod.h; sourceTree = "<group>"; };
+		E49FE49227C6190C00AE7C33 /* DBTTimerMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTTimerMethod.m; sourceTree = "<group>"; };
 		E4FAB07F26AE8AD7006D6A76 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E4FAB08026AE8AD7006D6A76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4FAB08126AE8AD7006D6A76 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 				E4FAB08426AE8AD7006D6A76 /* Main.storyboard */,
 				E4FAB08926AE8AD7006D6A76 /* ViewController.h */,
 				E4FAB08126AE8AD7006D6A76 /* ViewController.m */,
+				E49FE49127C6190C00AE7C33 /* DBTTimerMethod.h */,
+				E49FE49227C6190C00AE7C33 /* DBTTimerMethod.m */,
 			);
 			path = BaseProject;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				E4FAB08E26AE8AD7006D6A76 /* main.m in Sources */,
 				E4FAB08B26AE8AD7006D6A76 /* ViewController.m in Sources */,
 				E4FAB08F26AE8AD7006D6A76 /* AppDelegate.m in Sources */,
+				E49FE49327C6190C00AE7C33 /* DBTTimerMethod.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -92,7 +92,14 @@
 
 
 - (void)action_3 {
-   
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] localizedInfoDictionary];
+    NSDictionary *defaultDic = [[NSBundle mainBundle] infoDictionary];
+    NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+    if (app_Name.length == 0) {
+        app_Name = [defaultDic objectForKey:@"CFBundleDisplayName"];
+    }
+    
+    NSLog(@"app_Name %@", app_Name);
 }
 
 - (void)action_4 {
